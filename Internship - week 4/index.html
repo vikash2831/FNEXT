@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Neumorphic Click Counter</title>
+  <style>
+    body {
+      margin: 0;
+      background: #1e1e2f;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #2c2c3e;
+      border-radius: 25px;
+      box-shadow: 15px 15px 30px #1a1a29, -15px -15px 30px #3e3e53;
+      padding: 40px 30px;
+      text-align: center;
+      width: 300px;
+    }
+
+    h1 {
+      color: #f0f0f0;
+      margin-bottom: 20px;
+    }
+
+    #counter {
+      font-size: 70px;
+      font-weight: bold;
+      color: #00ffc3;
+      text-shadow: 0 0 10px #00ffc3, 0 0 20px #00ffc3;
+      margin: 30px 0;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    button {
+      background: #2c2c3e;
+      border: none;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      font-size: 28px;
+      color: #00ffc3;
+      box-shadow: 6px 6px 10px #1a1a29, -6px -6px 10px #3e3e53;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      box-shadow: inset 4px 4px 8px #1a1a29, inset -4px -4px 8px #3e3e53;
+    }
+
+    .reset-btn {
+      margin-top: 25px;
+      width: 80%;
+      height: 45px;
+      border-radius: 20px;
+      font-size: 16px;
+      color: #fff;
+      background-color: #ff1744;
+      box-shadow: 4px 4px 8px #1a1a29, -4px -4px 8px #3e3e53;
+    }
+
+    .reset-btn:hover {
+      background-color: #d50032;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Click Counter</h1>
+    <div id="counter">0</div>
+    <div class="btn-group">
+      <button onclick="decrease()">−</button>
+      <button onclick="increase()">+</button>
+    </div>
+    <button class="reset-btn" onclick="reset()">Reset</button>
+  </div>
+
+  <script>
+    let count = 0;
+    const counter = document.getElementById('counter');
+
+    function updateCounter() {
+      counter.textContent = count;
+    }
+
+    function increase() {
+      count++;
+      updateCounter();
+    }
+
+    function decrease() {
+      count--;
+      updateCounter();
+    }
+
+    function reset() {
+      count = 0;
+      updateCounter();
+    }
+  </script>
+
+</body>
+</html>
